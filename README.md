@@ -32,23 +32,25 @@ In addition to redirection, the system tracks every click. Before redirecting th
 
 ---
 
-📊 Dashboard Features
-Total clicks
-Click trends over time
-Activity logs
-Original URL preview
+📊 **Dashboard Features**
 
-🔐 Key Concept
-Short URLs are generated using Base62 encoding:
-Uses characters: 0-9, a-z, A-Z
-Converts numeric IDs → short strings
-Ensures unique and compact URLs
+- Total clicks
+- Click trends over time
+- Activity logs
+- Original URL preview
 
+🔐 **Key Concept**
 
+- Short URLs are generated using Base62 encoding:
+- Uses characters: 0-9, a-z, A-Z
+- Converts numeric IDs → short strings
+- Ensures unique and compact URLs
+
+---
 ## 📂 Project Detail (Architecture & Files)
 
 The project is strictly modular, separating the backend business logic from the frontend user interface.
-
+```
 fastapi-shortener/
 ├── requirements.txt      # Lists all Python dependencies
 ├── backend/              # Core API Logic
@@ -59,35 +61,44 @@ fastapi-shortener/
 │   └── main.py           # The FastAPI app, defining the POST and GET routes
 └── frontend/             # User Interface
     └── app.py            # The Streamlit dashboard that consumes the FastAPI endpoints
+```
+---
 
 
 ## 🚀 How to Run the Project Locally
 You will need two separate terminal windows to run the Backend and Frontend simultaneously.
 
-1. Initial Setup
+**1. Initial Setup**
+
 Clone the repository and install the dependencies:
 
-Bash
+```Bash
 ## Create and activate a virtual environment (Recommended)
 create: python -m venv venv
-
 run: venv\Scripts\activate
+```
 
+```Bash
 ## Install required packages
 pip install -r requirements.txt
+```
 
-2. Start the Backend API
+**2. Start the Backend API**
+
 In your first terminal, start the FastAPI server:
 ```Bash
 uvicorn backend.main:app --reload --port 8000
 ``` 
 The API is now running at http://localhost:8000. The SQLite database (shortener.db) will be created automatically.
 
-3. Start the Frontend Dashboard
+**3. Start the Frontend Dashboard**
+
 Open a second terminal, activate the virtual environment again, and run:
 ```Bash
 streamlit run frontend/app.py
 ```
 The dashboard will automatically open in your browser at http://localhost:8501.
 
-4. stop the server (ctrl + c)
+**4. stop the server (ctrl + c)**
+
+---
